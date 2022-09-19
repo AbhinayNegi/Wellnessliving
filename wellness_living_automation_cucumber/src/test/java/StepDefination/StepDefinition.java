@@ -3,6 +3,7 @@ package StepDefination;
 import java.awt.AWTException;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import PageObject.AddClientPage;
@@ -129,5 +130,23 @@ public class StepDefinition {
 		clientprofilepage.check_country();
 	    
 	}
+ 
+	@Then("Click on Purchases tab on the side panel")
+	public void click_on_purchases_tab_on_the_side_panel() {
+		clientprofilepage.go_to_bill_accountbalances();
+		clientprofilepage.purchases_click();
+	}
 
+	@Then("Click on Advanced Filter -> Select any options")
+	public void click_on_advanced_filter_select_any_options() {
+	   clientprofilepage.advance_filter_click();
+	   clientprofilepage.filter_option_select();
+	}
+
+	@Then("It should display respective result")
+	public void it_should_display_respective_result() {
+	clientprofilepage.filter_applied();
+	}
+
+	
 }
