@@ -89,4 +89,8 @@ public class AddClientPage {
 		 * .moveToElement(createbtn).click(); mouseOverHome.perform();
 		 * //createbtn.click();
 		 */	}
+
+		 public void test(){
+			
+		 }
 }
