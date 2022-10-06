@@ -28,7 +28,7 @@ public class BrowserManager {
 	public static FirefoxDriver firefoxDriver;
 	
 	public static enum EPConditions {
-		VISIBLE, CLICKABLE, PRESENCE, STALENESS
+		VISIBLE, CLICKABLE, PRESENCE, STALENESS, INVISIBLE
 	}
 	
 	static WebDriverWait wait;
@@ -104,7 +104,7 @@ public class BrowserManager {
 	} // remove these methods.
 	
 	public static WebElement waitFor(By locator, WebDriver tempDriver, EPConditions epConditions) {
-		wait = new WebDriverWait(tempDriver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(tempDriver, Duration.ofSeconds(20));
 
 		switch (epConditions) {
 		case CLICKABLE:
@@ -113,6 +113,9 @@ public class BrowserManager {
 			return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		case PRESENCE:
 			return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		case INVISIBLE:
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+			return null;
 		default:
 			return null;
 		}
