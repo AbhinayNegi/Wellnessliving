@@ -125,6 +125,10 @@ public class BrowserManager {
 		wait = new WebDriverWait(tempDriver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(e)).click();;
 	}
+	public static void click(By e, WebDriver tempDriver) {
+		wait = new WebDriverWait(tempDriver, Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.elementToBeClickable(e)).click();;
+	}
 	
 	public static void getCapability(String browser) throws IOException {
 		if(browser.equals("Chrome")) {
